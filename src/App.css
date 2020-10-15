@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+.app {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    min-width: 90vw;
+    z-index: 1;
+    flex-wrap: wrap;
+    min-width: 300px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app__searchbar {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app__playlists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    left: auto;
+    right: auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Custom-ui for React Confirm Alert */
+.react-confirm-alert-overlay {
+    background-color: rgba(117, 114, 114, 0.4);
 }
 
-.App-link {
-  color: #61dafb;
+.react-confirm-alert-body {
+    background-color: #457b9d;
+    color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app__login {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.app__login-button {
+    background-color: #457b9d;
+    border-radius: 24.5px;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    outline: none;
 }

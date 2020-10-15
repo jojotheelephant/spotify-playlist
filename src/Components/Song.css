@@ -1,0 +1,137 @@
+.song {
+    width: 300px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+    color: #1d3557;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    border-radius: 24.5px;
+}
+
+.song img {
+    display: flex;
+    align-self: flex-start;
+    margin: 5px 5px;
+    height: 40px;
+    width: 40px;
+    border-radius: 999px;
+}
+
+.song__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 180px;
+}
+
+.song__name {
+    margin: 0px;
+    width: 100%;
+    cursor: default;
+    font-size: 12px;
+    flex-wrap: nowrap;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.song__artist-album {
+    margin: 0;
+    cursor: default;
+    font-size: 12px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.song__end {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 70px;
+    margin: 0px;
+}
+
+.song__duration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: lighter;
+    height: 100%;
+    width: 28px;
+    margin: 0px;
+    z-index: 1;
+}
+
+.song-action {
+    position: absolute;
+    cursor: pointer;
+    height: 100%;
+    width: 70px;
+    border: none;
+    border-radius: 10px;
+    align-self: center;
+    outline: none;
+    color: #1d3557;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 0px;
+    background-color: inherit;
+    padding-left: 10px;
+}
+
+.song:hover {
+    box-shadow: -11px 11px 15px 4px rgba(0, 0, 0, 0.15);
+}
+
+@media only screen and (min-width: 600px) {
+    .song {
+        width: 480px;
+        height: 66px;
+        border-radius: 40px;
+    }
+
+    .song img {
+        height: 52px;
+        width: 52px;
+        margin: 7px;
+    }
+
+    .song__info {
+        width: 300px;
+    }
+
+    .song__name {
+        font-size: 16px;
+    }
+
+    .song__artist-album {
+        font-size: 12px;
+    }
+
+    .song__end {
+        width: 114px;
+    }
+
+    .song__duration {
+        padding-left: 5px;
+        font-size: 16px;
+        width: 48px;
+    }
+
+    .song-action {
+        position: relative;
+        width: 100%;
+    }
+}

@@ -1,0 +1,122 @@
+.masterplaylist {
+    color: #1d3557;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 300px;
+    margin: 1rem auto;
+}
+
+.masterplaylist__function {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 300px;
+}
+
+.masterplaylist__input-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.masterplaylist__input {
+    width: 100%;
+    height: 100%;
+    margin: 1.5rem;
+    margin-left: 0rem;
+    margin-top: 2rem;
+    background-color: inherit;
+    border: none;
+    color: #457b9d;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.masterplaylist__label-name {
+    position: absolute;
+    color: #a8abb8;
+    font-size: 14px;
+    bottom: 20px;
+    left: 0px;
+    width: 100%;
+    height: 75%;
+    pointer-events: none;
+    border-bottom: 1px solid #457b9d;
+}
+
+.masterplaylist__label-name::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #457b9d;
+    left: 0px;
+    bottom: -1px;
+    transform: translateX(-150%);
+    transition: transform 0.4s ease;
+}
+
+.masterplaylist__content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 3px;
+    transition: all 0.4s ease;
+}
+
+.masterplaylist__input:focus
+    + .masterplaylist__label-name
+    .masterplaylist__content-name,
+.masterplaylist__input:valid
+    + .masterplaylist__label-name
+    .masterplaylist__content-name {
+    transform: translateY(-150%);
+    color: white;
+}
+
+.masterplaylist__input:focus + .masterplaylist__label-name::after,
+.masterplaylist__input:valid + .masterplaylist__label-name::after {
+    transform: translateX(0%);
+}
+
+.masterplaylist__icons {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.masterplaylist__clear,
+.masterplaylist__save {
+    cursor: pointer;
+}
+
+.masterplaylist__info-name {
+    height: 32px;
+    width: 320px;
+    color: #1d3557;
+    font-size: 24px;
+    font-weight: bold;
+    justify-self: center;
+    align-self: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.masterplaylist__info {
+    height: 53px;
+    margin-bottom: 1rem;
+}
+
+.masterplaylist__info-details {
+    height: 21px;
+}
+
+@media only screen and (min-width: 600px) {
+    .masterplaylist__info-name {
+        width: 500px;
+    }
+}

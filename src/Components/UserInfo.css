@@ -1,0 +1,40 @@
+.userinfo {
+    background-color: transparent;
+    padding-right: 1rem;
+    color: #fff;
+    position: relative;
+}
+
+.userinfo__section {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    right: 0px;
+    bottom: -25px;
+    margin-right: 1.5rem;
+}
+
+.userinfo__img {
+    width: 3rem;
+    height: auto;
+    border-radius: 999px;
+    margin-right: 1.5rem;
+}
+
+.userInfo__display-name {
+    padding-right: 0.7em;
+    height: 100%;
+}
+
+.userinfo__logoutButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    height: 100%;
+    color: white;
+    outline: none;
+}
