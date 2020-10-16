@@ -19,7 +19,7 @@ function PageIndex({ index, prevPage, nextPage }) {
 
     // Conditional Rendering of Previous Arrow Button
     const displayPrev = () => {
-        if (index !== 1) {
+        if (index !== 0) {
             return (
                 <Tooltip title="Previous page" arrow TransitionComponent={Zoom}>
                     <button
@@ -38,7 +38,7 @@ function PageIndex({ index, prevPage, nextPage }) {
     return (
         <div className="pageIndex">
             {displayPrev()}
-            <h1>{index}</h1>
+            <h1>{index + 1}</h1>
             <Tooltip title="Next Page" arrow TransitionComponent={Zoom}>
                 <button className="pageIndex__next" onClick={eventHandlerNext}>
                     {">"}

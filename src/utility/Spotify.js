@@ -63,12 +63,12 @@ const SpotifyAPI = {
     },
 
     // use searchTerm from App.js to run search on Spotify API
-    search(term) {
+    search(term,offset,limit) {
         // getAccessToken
         const accessToken = SpotifyAPI.getAccessToken();
 
         // GET request from Spotify API for search
-        return fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
+        return fetch(`https://api.spotify.com/v1/search?q=${term}&type=track&offset=${offset}&limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
