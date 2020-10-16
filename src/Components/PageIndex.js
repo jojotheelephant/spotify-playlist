@@ -5,7 +5,7 @@ import "./PageIndex.css";
 import Tooltip from "@material-ui/core/Tooltip";
 import Zoom from "@material-ui/core/Zoom";
 
-function PageIndex({ index, prevPage, nextPage }) {
+function PageIndex({ index, prevPage, nextPage, limit }) {
     // ----- METHODS -----
     // Next Page button handler
     const eventHandlerNext = () => {
@@ -18,7 +18,7 @@ function PageIndex({ index, prevPage, nextPage }) {
     };
 
     const indexToPage = () => {
-        return (index/10 + 1)
+        return (index/limit + 1)
     }
 
     // Conditional Rendering of Previous Arrow Button

@@ -27,7 +27,7 @@ function App() {
     // index page of search result
     const [index, setIndex] = useState(0);
     // number of songs to return upon search
-    const [limit] = useState(10)
+    const [limit] = useState(8)
     // name of playlist
     const [playlistName, setPlaylistName] = useState("");
     // list of songs added from searchResults to be uploaded
@@ -248,6 +248,7 @@ function App() {
                         searchedTerm={searchTerm}
                         searchResults={searchResults}
                         onAdd={addSong}
+                        limit={limit}
                     />
                     <MasterPlaylist
                         playlistName={playlistName}
