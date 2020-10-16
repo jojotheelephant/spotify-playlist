@@ -25,9 +25,19 @@ const SpotifyAPI = {
 		} else {
 			console.log('getAccessToken #3');
 			const requestAccessTokenURL = 'http://localhost:5500/login'
-			window.location = requestAccessTokenURL;
-		}
-	},
+            window.location = requestAccessTokenURL;
+            setTimeout(() => {
+                const accessTokenInURL = window.location.href.match(/access_token=([^&]*)/);
+
+		        if (accessTokenInURL) {
+                    console.log('getAccessToken #2');
+                    AccessToken = accessTokenInURL[1];
+                    window.history.pushState('Access Token', null, '/');
+                    return AccessToken;
+                }
+		    },1000)
+        }
+    },
 
     // sends request to Spotify for userID information from Spotify API
     getUserInfo() {
@@ -41,8 +51,8 @@ const SpotifyAPI = {
             },
         })
             .then((response) => {
-                console.log(`UserInfo JSON Response Received`, response);
-                response.json();
+                console.log(`UserInfo JSON Response Received`, response.body);
+                return response.json();
             }, (error) => console.log(error))
             .then((data) => {
                 if (!data) {
@@ -50,17 +60,18 @@ const SpotifyAPI = {
                     return [];
                 } else {
                     console.log('user returned', data)
-                    return data.map((user) => ({
-                        display_name: user.display_name,
-                        country: user.country,
-                        email: user.email,
-                        userID: user.id,
-                        image: user.images.url,
-                        userURI: user.uri,
-                    }));
-                }
-            }, (error) => console.log(error));
+                    let userInfo = {display_name: data.display_name,
+                        country: data.country,
+                        email: data.email,
+                        userID: data.id,
+                        image: data.images[0].url,
+                        userURI: data.uri}
+                    return userInfo;
+
+                }  
+            },(error) => console.log(error))
     },
+    
 
     // use searchTerm from App.js to run search on Spotify API
     search(term,offset,limit) {
@@ -78,13 +89,14 @@ const SpotifyAPI = {
                 if (!jsonResponse.tracks) {
                     return [];
                 } else {
+                    console.log(jsonResponse)
                     return jsonResponse.tracks.items.map((track) => ({
                         id: track.id,
                         name: track.name,
-                        artist: track.artist[0].name,
+                        artist: track.artists[0].name,
                         album: track.album.name,
                         URI: track.uri,
-                        url: track.album.images[1],
+                        url: track.album.images[2].url,
                         duration_ms: track.duration_ms,
                     }));
                 }

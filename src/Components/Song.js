@@ -42,9 +42,12 @@ function Song({ songs, onAdd, isRemovable, onRemove }) {
         let duration = songs.duration_ms;
         const ms = duration % 1000;
         duration = (duration - ms) / 1000;
-        const secs = duration % 60;
+        let secs = duration % 60;
         duration = (duration - secs) / 60;
         const mins = duration % 60;
+        if (secs < 10) {
+            secs = `0${secs}`
+        }
         return `${mins}:${secs}`;
     };
 

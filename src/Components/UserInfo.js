@@ -14,7 +14,7 @@ function UserInfo({ userInfo, isMobile, isLoggedIn, logout }) {
                     TransitionComponent={Zoom}
                 >
                     <button className="userinfo__logoutButton" onClick={logout}>
-                        <span class="material-icons">logout</span>
+                        <span className="material-icons">logout</span>
                     </button>
                 </Tooltip>
     }

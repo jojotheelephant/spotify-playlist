@@ -13,117 +13,126 @@ import MasterPlaylist from "./Components/MasterPlaylist";
 import SpotifyAPI from "./utility/Spotify";
 
 // searchResults data
-const fakeSearchResults = [
-    {
-        id: "3bH4HzoZZFq8UpZmI2AMgV",
-        name: "New Light",
-        artist: "John Mayer",
-        album: "New Light",
-        URI: "spotify:track:3bH4HzoZZFq8UpZmI2AMgV",
-        url: "https://i.scdn.co/image/ab67616d00001e0221f02a52720857a42bba5417",
-        duration_ms: 207959,
-    },
-    {
-        id: "7vFv0yFGMJW3qVXbAd9BK9",
-        name: "Your Body Is a Wonderland",
-        artist: "John Mayer",
-        album: "Room For Squares",
-        URI: "spotify:track:7vFv0yFGMJW3qVXbAd9BK9",
-        url: "https://i.scdn.co/image/ab67616d00001e028848d57cbfa7751e028f4dc9",
-        duration_ms: 207959,
-    },
-    {
-        id: "2jdAk8ATWIL3dwT47XpRfu",
-        name: "Slow Dancing in a Burning Room",
-        artist: "John Mayer",
-        album: "Continuum",
-        URI: "spotify:track:2jdAk8ATWIL3dwT47XpRfu",
-        url: "https://i.scdn.co/image/ab67616d00001e027af5fdc5ef048a68db62b85f",
-        duration_ms: 207959,
-    },
-    {
-        id: "5imShWWzwqfAJ9gXFpGAQh",
-        name: "Waiting On the World to Change",
-        artist: "John Mayer",
-        album: "Continuum",
-        URI: "spotify:track:5imShWWzwqfAJ9gXFpGAQh",
-        url: "https://i.scdn.co/image/ab67616d00001e027af5fdc5ef048a68db62b85f",
-        duration_ms: 207959,
-    },
-    {
-        id: "3SktMqZmo3M9zbB7oKMIF7",
-        name: "Gravity",
-        artist: "John Mayer",
-        album: "Continuum",
-        URI: "spotify:track:3SktMqZmo3M9zbB7oKMIF7",
-        url: "https://i.scdn.co/image/ab67616d00001e027af5fdc5ef048a68db62b85f",
-        duration_ms: 207959,
-    },
-    {
-        id: "4LloVtxNZpeh7q7xdi1DQc",
-        name:
-            "Free Fallin' - Live at the Nokia Theatre, Los Angeles, CA - December 2007",
-        artist: "John Mayer",
-        album: "Where the Light Is: John Mayer Live In Los Angeles",
-        URI: "spotify:track:4LloVtxNZpeh7q7xdi1DQc",
-        url: "https://i.scdn.co/image/ab67616d00001e025b9c332f9f76cabc137e400f",
-        duration_ms: 207959,
-    },
-    {
-        id: "09oZ9eXQ2fo6YDrPzJqAoP",
-        name: "Outta My Head (with John Mayer)",
-        artist: "Khalid",
-        album: "Free Spirit",
-        URI: "spotify:track:09oZ9eXQ2fo6YDrPzJqAoP",
-        url: "https://i.scdn.co/image/ab67616d00001e02b361ce46dbadbf8a11081b60",
-        duration_ms: 207959,
-    },
-    {
-        id: "7cpCU3Denug5NGZsSpQl8v",
-        name: "XO",
-        artist: "John Mayer",
-        album: "XO",
-        URI: "spotify:track:7cpCU3Denug5NGZsSpQl8v",
-        url: "https://i.scdn.co/image/ab67616d00001e02924db37163c8c94430c689fc",
-        duration_ms: 207959,
-    },
-    {
-        id: "6TL3MOcVW8i1UiJkvhpDbR",
-        name: "Carry Me Away",
-        artist: "John Mayer",
-        album: "Carry Me Away",
-        URI: "spotify:track:6TL3MOcVW8i1UiJkvhpDbR",
-        url: "https://i.scdn.co/image/ab67616d00001e020e0f646a1fb0fb177e78bf18",
-        duration_ms: 207959,
-    },
-];
+// const fakeSearchResults = [
+//     {
+//         id: "3bH4HzoZZFq8UpZmI2AMgV",
+//         name: "New Light",
+//         artist: "John Mayer",
+//         album: "New Light",
+//         URI: "spotify:track:3bH4HzoZZFq8UpZmI2AMgV",
+//         url: "https://i.scdn.co/image/ab67616d00001e0221f02a52720857a42bba5417",
+//         duration_ms: 207959,
+//     },
+//     {
+//         id: "7vFv0yFGMJW3qVXbAd9BK9",
+//         name: "Your Body Is a Wonderland",
+//         artist: "John Mayer",
+//         album: "Room For Squares",
+//         URI: "spotify:track:7vFv0yFGMJW3qVXbAd9BK9",
+//         url: "https://i.scdn.co/image/ab67616d00001e028848d57cbfa7751e028f4dc9",
+//         duration_ms: 251959,
+//     },
+//     {
+//         id: "2jdAk8ATWIL3dwT47XpRfu",
+//         name: "Slow Dancing in a Burning Room",
+//         artist: "John Mayer",
+//         album: "Continuum",
+//         URI: "spotify:track:2jdAk8ATWIL3dwT47XpRfu",
+//         url: "https://i.scdn.co/image/ab67616d00001e027af5fdc5ef048a68db62b85f",
+//         duration_ms: 227959,
+//     },
+//     {
+//         id: "5imShWWzwqfAJ9gXFpGAQh",
+//         name: "Waiting On the World to Change",
+//         artist: "John Mayer",
+//         album: "Continuum",
+//         URI: "spotify:track:5imShWWzwqfAJ9gXFpGAQh",
+//         url: "https://i.scdn.co/image/ab67616d00001e027af5fdc5ef048a68db62b85f",
+//         duration_ms: 329959,
+//     },
+//     {
+//         id: "3SktMqZmo3M9zbB7oKMIF7",
+//         name: "Gravity",
+//         artist: "John Mayer",
+//         album: "Continuum",
+//         URI: "spotify:track:3SktMqZmo3M9zbB7oKMIF7",
+//         url: "https://i.scdn.co/image/ab67616d00001e027af5fdc5ef048a68db62b85f",
+//         duration_ms: 197959,
+//     },
+//     {
+//         id: "4LloVtxNZpeh7q7xdi1DQc",
+//         name:
+//             "Free Fallin' - Live at the Nokia Theatre, Los Angeles, CA - December 2007",
+//         artist: "John Mayer",
+//         album: "Where the Light Is: John Mayer Live In Los Angeles",
+//         URI: "spotify:track:4LloVtxNZpeh7q7xdi1DQc",
+//         url: "https://i.scdn.co/image/ab67616d00001e025b9c332f9f76cabc137e400f",
+//         duration_ms: 208959,
+//     },
+//     {
+//         id: "09oZ9eXQ2fo6YDrPzJqAoP",
+//         name: "Outta My Head (with John Mayer)",
+//         artist: "Khalid",
+//         album: "Free Spirit",
+//         URI: "spotify:track:09oZ9eXQ2fo6YDrPzJqAoP",
+//         url: "https://i.scdn.co/image/ab67616d00001e02b361ce46dbadbf8a11081b60",
+//         duration_ms: 224959,
+//     },
+//     {
+//         id: "7cpCU3Denug5NGZsSpQl8v",
+//         name: "XO",
+//         artist: "John Mayer",
+//         album: "XO",
+//         URI: "spotify:track:7cpCU3Denug5NGZsSpQl8v",
+//         url: "https://i.scdn.co/image/ab67616d00001e02924db37163c8c94430c689fc",
+//         duration_ms: 282931,
+//     },
+//     {
+//         id: "6TL3MOcVW8i1UiJkvhpDbR",
+//         name: "Carry Me Away",
+//         artist: "John Mayer",
+//         album: "Carry Me Away",
+//         URI: "spotify:track:6TL3MOcVW8i1UiJkvhpDbR",
+//         url: "https://i.scdn.co/image/ab67616d00001e020e0f646a1fb0fb177e78bf18",
+//         duration_ms: 307959,
+//     },
+//     {
+//         id: "6TL3MOcVW8i1UiJkvhpDbR",
+//         name: "Let it Go",
+//         artist: "John Mayer",
+//         album: "Carry Me Away",
+//         URI: "spotify:track:6TL3MOcVW8i1UiJkvhpDbR",
+//         url: "https://i.scdn.co/image/ab67616d00001e020e0f646a1fb0fb177e78bf18",
+//         duration_ms: 230959,
+//     },
+// ];
 
-const fakeUserInfo = {
-    display_name: "Kenny Hsieh",
-    country: "USA",
-    email: "hsiehme@gmail.com",
-    userID: 1253452628,
-    image:
-        "https://scontent-atl3-2.xx.fbcdn.net/v/t1.0-1/p320x320/15826263_10101393355661032_1761970459627088481_n.jpg?_nc_cat=100&_nc_sid=0c64ff&_nc_ohc=TyA5oQOGnYoAX8sqqW4&_nc_ht=scontent-atl3-2.xx&tp=6&oh=de3e0da802fd5ca32a09532c1f6c142c&oe=5FA57A7B",
-    userURI: "spotify:user:1253452628",
-};
+// const fakeUserInfo = {
+//     display_name: "Kenny Hsieh",
+//     country: "USA",
+//     email: "hsiehme@gmail.com",
+//     userID: 1253452628,
+//     image:
+//         "https://scontent-atl3-2.xx.fbcdn.net/v/t1.0-1/p320x320/15826263_10101393355661032_1761970459627088481_n.jpg?_nc_cat=100&_nc_sid=0c64ff&_nc_ohc=TyA5oQOGnYoAX8sqqW4&_nc_ht=scontent-atl3-2.xx&tp=6&oh=de3e0da802fd5ca32a09532c1f6c142c&oe=5FA57A7B",
+//     userURI: "spotify:user:1253452628",
+// };
 
 function App() {
     // ----- STATES -----
     // setstate for window innerwith to test if mobile
     const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
     // setState for login state
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     // logged in userInfo
-    const [userInfo, setUserInfo] = useState(fakeUserInfo);
+    const [userInfo, setUserInfo] = useState('');
     // searchTerm input from user
     const [searchTerm, setSearchTerm] = useState("");
     // list of songs from Spotify search in object format
-    const [searchResults, setSearchResults] = useState(fakeSearchResults);
+    const [searchResults, setSearchResults] = useState([]);
     // index page of search result
     const [index, setIndex] = useState(0);
     // number of songs to return upon search
-    const [limit, setLimit] = useState(10)
+    const [limit] = useState(10)
     // name of playlist
     const [playlistName, setPlaylistName] = useState("");
     // list of songs added from searchResults to be uploaded
@@ -160,26 +169,38 @@ function App() {
         playlists();
     },);
 
+    // runs search whenever index changes (?)
+    useEffect(() => {
+        search(searchTerm)
+    }, [index])
+
+    // toggles isLoggedIn if UserInfo is truthy
+    useEffect(() => {
+        if (userInfo) {
+            setIsLoggedIn(true)
+        } else {
+            setIsLoggedIn(false)
+        }
+    },[userInfo])
+
     // ----- METHODS -----
     // log in to Spotify
     const login = () => {
         SpotifyAPI.getUserInfo()
             .then(
                 (returnedUserInfo) => {
-                    console.log(`Returned User Info: ${returnedUserInfo}`)
+                    console.log(`Returned User Info:`, returnedUserInfo)
                     setUserInfo(returnedUserInfo);
                     return returnedUserInfo
                 },
                 (error) => console.log(error)
             )
-            .then(returnedInfo => {
-                if (returnedInfo.display_name) {setIsLoggedIn(true)}
-            })
     }
 
     // log out of Spotify
     const logout = () => {
         setIsLoggedIn(false)
+        setUserInfo([])
     }
     
     // add song from searchResult array to playlistSong array
@@ -205,12 +226,12 @@ function App() {
 
     // change page (next) index of search results ~~ not complete (needs to tie to spotify)
     const nextPage = () => {
-        setIndex((prevIndex) => prevIndex + 1);
+        setIndex((prevIndex) => prevIndex + limit);
     };
 
     // change page (prev) index of search results ~~ not complete (needs to tie to spotify)
     const prevPage = () => {
-        setIndex((prevIndex) => prevIndex - 1);
+        setIndex((prevIndex) => prevIndex - limit);
     };
 
     // clear button to reset playlistSongs array. Added confirm alert.
@@ -258,7 +279,7 @@ function App() {
                 buttons: [
                     {
                         label: "Save",
-                        onClick: uploadPlaylistToSpotify(),
+                        onClick: () => {uploadPlaylistToSpotify()},
                     },
                     {
                         label: "Cancel",
@@ -294,7 +315,7 @@ function App() {
     // uploads playlist to Spotify (called by savePlaylist method) ~~  need to define userID
     const uploadPlaylistToSpotify = () => {
         const songURIs = playlistSongs.map((track) => track.URI);
-        console.log(`Sending songURIs to SpotifyAPI method: ${songURIs}`);
+        console.log(`Sending songURIs to SpotifyAPI method:`, songURIs, `PlaylistName: `, playlistName, `userID: `, userInfo.userID);
         SpotifyAPI.uploadPlaylist(playlistName, songURIs, userInfo.userID).then(
             () => {
                 setPlaylistName("");
@@ -315,7 +336,7 @@ function App() {
                 },
                 (error) => console.log(error)
             )
-            .then(console.log(`Search Results Received: ${searchResults}`));
+            .then(console.log(`Search Results Received:`, searchResults));
     };
 
     // ----- CONDITIONAL RENDER -----
