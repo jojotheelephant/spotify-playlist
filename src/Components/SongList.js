@@ -4,7 +4,7 @@ import "./SongList.css";
 // import components
 import Song from "./Song";
 
-function SongList({ songs, onAdd, isRemovable, onRemove }) {
+function SongList({ songs, onAdd, isRemovable, onRemove, previewSong }) {
     return (
         <div className="songlist">
             {songs.map((song) => {
@@ -15,6 +15,7 @@ function SongList({ songs, onAdd, isRemovable, onRemove }) {
                         onAdd={onAdd}
                         isRemovable={isRemovable}
                         onRemove={onRemove}
+                        previewSong={previewSong}
                     />
                 );
             })}

@@ -14,7 +14,8 @@ function SearchedPlaylist({
     index,
     nextPage,
     prevPage,
-    limit
+    limit,
+    previewSong
 }) {
     const playlistCount = () => {
         return searchResults.length
@@ -53,7 +54,7 @@ function SearchedPlaylist({
                 
                 
             </h1>
-            <SongList songs={searchResults} onAdd={onAdd} isRemovable={false} />
+            <SongList songs={searchResults} onAdd={onAdd} isRemovable={false} previewSong={previewSong}/>
             <PageIndex index={index} prevPage={prevPage} nextPage={nextPage} limit={limit}/>
         </div>
     );

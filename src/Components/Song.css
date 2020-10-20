@@ -29,12 +29,12 @@
     flex-wrap: nowrap;
     overflow: hidden;
     width: 180px;
+    cursor: pointer;
 }
 
 .song__name {
     margin: 0px;
     width: 100%;
-    cursor: default;
     font-size: 12px;
     flex-wrap: nowrap;
     text-overflow: ellipsis;
@@ -44,7 +44,6 @@
 
 .song__artist-album {
     margin: 0;
-    cursor: default;
     font-size: 12px;
     width: 100%;
     text-overflow: ellipsis;

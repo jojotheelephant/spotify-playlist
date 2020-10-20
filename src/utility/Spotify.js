@@ -98,6 +98,7 @@ const SpotifyAPI = {
                         URI: track.uri,
                         url: track.album.images[2].url,
                         duration_ms: track.duration_ms,
+                        preview: track.preview_url,
                     }));
                 }
             });

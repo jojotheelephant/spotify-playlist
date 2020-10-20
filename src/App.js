@@ -11,6 +11,7 @@ import MasterPlaylist from "./Components/MasterPlaylist";
 
 // import SPOTIFYAPI
 import SpotifyAPI from "./utility/Spotify";
+import Footer from "./Components/Footer";
 
 function App() {
     // ----- STATES -----
@@ -34,6 +35,10 @@ function App() {
     const [playlistSongs, setPlaylistSongs] = useState([]);
     // true when searchResults or playlistSongs array have content
     const [activeList, setActiveList] = useState(false);
+    // useState to check if a song is currently playing
+    const [isPlaying, setIsPlaying] = useState(false);
+    // useState to keep track of current active song
+    const [currentSong, setCurrentSong] = useState("");
 
     // ----- USEEFFECT -----
     // Checks device! changes state of isMobile if window changes below 600
@@ -114,10 +119,35 @@ function App() {
         setPlaylistSongs(newArr);
     };
 
-    // renaming playlistName ~~ not complete
+    // renaming playlistName 
     const updatePlaylistName = (name) => {
         setPlaylistName(name);
     };
+
+    // play 30s song preview upon click
+    const previewSong = (song) => {
+        if (!song.preview) {
+            console.log(`No preview provided`)
+        } else if (isPlaying && song.preview !== currentSong.src) {
+            currentSong.pause();
+            setIsPlaying(false);
+            const playSong = new Audio(song.preview);
+            setCurrentSong(playSong);
+            playSong.play();
+            setIsPlaying(true);
+            console.log('Now Playing song from src: ', playSong.src)
+        } else if (!isPlaying) {
+            const playSong = new Audio(song.preview);
+            setCurrentSong(playSong);
+            playSong.play();
+            setIsPlaying(true);
+            console.log('Now Playing song from src: ', playSong.src)
+        } else if (isPlaying) {
+            currentSong.pause();
+            setIsPlaying(false);
+        }
+    };
+    
 
     // change page (next) index of search results ~~ not complete (needs to tie to spotify)
     const nextPage = () => {
@@ -249,6 +279,7 @@ function App() {
                         searchResults={searchResults}
                         onAdd={addSong}
                         limit={limit}
+                        previewSong={previewSong}
                     />
                     <MasterPlaylist
                         playlistName={playlistName}
@@ -257,6 +288,7 @@ function App() {
                         onNameChange={updatePlaylistName}
                         onClear={clearPlaylist}
                         onSave={savePlaylist}
+                        previewSong={previewSong}
                     />
                 </div>
             );
@@ -272,7 +304,7 @@ function App() {
     const loginPage = () => {
         return (
             <div className="app__login">
-                <button className="app__login-button" onClick={login}>Login</button>
+                <button className="app__login-button" onClick={login}>Get Started</button>
             </div>
         )
     }
@@ -289,6 +321,7 @@ function App() {
                 />
             </div>
             {isLoggedIn ? playlists() : loginPage()}
+            <Footer />
         </div>
     );
 }

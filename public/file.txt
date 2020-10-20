@@ -3,18 +3,10 @@ https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
 
 Project Features: 
 
-- Design for Mobile Devices first
-
-- OAuth2.0 for login
-    - UserInfo display user avatar and name on top right hand corner
-    - design for mobile view first
-    - log out Features
-
-- UI and CSS
-    - Adjust Screen side and scroller
-    
-- Save searched results to localstorage
-
+ToDo: 
+- Test and finalize uploading playlist to spotify
+- Create a limit to playlist upload size depending on Spotify Restrictions
+- Fix Logout button to properly log out of Spotify
 
 
 

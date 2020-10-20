@@ -5,8 +5,7 @@ import "./Song.css";
 import Tooltip from "@material-ui/core/Tooltip";
 import Zoom from "@material-ui/core/Zoom";
 
-
-function Song({ songs, onAdd, isRemovable, onRemove }) {
+function Song({ songs, onAdd, isRemovable, onRemove, previewSong }) {
     // ----- METHODS -----
     // render '-' if isRemoval is true and '+' if isRemoval is false
     const renderAction = () => {
@@ -37,6 +36,33 @@ function Song({ songs, onAdd, isRemovable, onRemove }) {
         }
     };
 
+    // render Tooltip for songs with previews tracks
+    const renderPreview = () => {
+        if (songs.preview) {
+            return (
+                <Tooltip title="Preview Track" arrow TransitionComponent={Zoom}>
+                <div className="song__info" onClick={playPause}>
+                    <h3 className="song__name">{songs.name}</h3>
+                    <p className="song__artist-album">
+                        {songs.artist} | {songs.album}
+                    </p>
+                </div>
+            </Tooltip>
+            )
+        } else {
+            return (
+                <Tooltip title="Spotify Preview Unavailable" arrow TransitionComponent={Zoom}>
+                    <div className="song__info inactive">
+                        <h3 className="song__name">{songs.name}</h3>
+                        <p className="song__artist-album">
+                            {songs.artist} | {songs.album}
+                        </p>
+                    </div>
+                </Tooltip>
+            )
+        }
+    }
+
     // convert duration_ms to mm:ss track length
     const songLength = () => {
         let duration = songs.duration_ms;
@@ -46,7 +72,7 @@ function Song({ songs, onAdd, isRemovable, onRemove }) {
         duration = (duration - secs) / 60;
         const mins = duration % 60;
         if (secs < 10) {
-            secs = `0${secs}`
+            secs = `0${secs}`;
         }
         return `${mins}:${secs}`;
     };
@@ -61,15 +87,18 @@ function Song({ songs, onAdd, isRemovable, onRemove }) {
         onRemove(songs);
     };
 
+    // play pause sample
+    const playPause = () => {
+        previewSong(songs);
+    };
+
     return (
         <div className="song">
+            <audio id="song__player">
+                <source src={songs.preview} />
+            </audio>
             <img src={songs.url} alt="album" />
-            <div className="song__info">
-                <h3 className="song__name">{songs.name}</h3>
-                <p className="song__artist-album">
-                    {songs.artist} | {songs.album}
-                </p>
-            </div>
+            {renderPreview()}
             <div className="song__end">
                 <h3 className="song__duration">{songLength()}</h3>
                 {renderAction()}

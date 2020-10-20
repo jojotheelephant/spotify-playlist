@@ -19,6 +19,7 @@ function MasterPlaylist({
     onNameChange,
     onClear,
     onSave,
+    previewSong
 }) {
     // ----- USESTATE -----
     const [nameForPlaylist, setNameForPlaylist] = useState('')
@@ -127,6 +128,7 @@ function MasterPlaylist({
                 songs={playlistSongs}
                 isRemovable={true}
                 onRemove={onRemove}
+                previewSong={previewSong}
             />
         </div>
     );
